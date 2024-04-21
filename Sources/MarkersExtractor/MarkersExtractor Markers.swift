@@ -16,7 +16,7 @@ extension MarkersExtractor {
     /// To subsequently unique the resulting `[Marker]`, call `uniquingMarkerIDs(in:)`
     ///
     /// - Throws: ``MarkersExtractorError``
-    func extractMarkers(
+    public func extractMarkers(
         sort: Bool = true,
         preloadedProjects: [FinalCutPro.FCPXML.Project]? = nil,
         parentProgress: ParentProgress? = nil

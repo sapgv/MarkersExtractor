@@ -74,6 +74,18 @@ extension MarkersExtractor {
                 ),
                 parentProgress: parentProgress
             )
+        case .txt:
+            return try await export(
+                for: TXTProfile.self,
+                media: media,
+                markers: markers,
+                outputURL: outputURL,
+                payload: .init(
+                    projectName: projectName,
+                    outputURL: outputURL
+                ),
+                parentProgress: parentProgress
+            )
         }
     }
     

@@ -13,7 +13,7 @@ import TimecodeKit
 /// - Note: This struct should mainly be an agnostic data repository and not assume anything about
 /// its ultimate intended destination(s).
 public struct Marker: Equatable, Hashable, Sendable {
-    struct ParentInfo: Equatable, Hashable {
+    public struct ParentInfo: Equatable, Hashable {
         var clipType: String
         var clipName: String
         var clipInTime: Timecode
@@ -29,18 +29,18 @@ public struct Marker: Equatable, Hashable, Sendable {
     }
     
     // raw metadata-related
-    var type: InterpretedMarkerType
-    var name: String
-    var notes: String
-    var roles: MarkerRoles
-    var position: Timecode
+    public var type: InterpretedMarkerType
+    public var name: String
+    public var notes: String
+    public var roles: MarkerRoles
+    public var position: Timecode
     
     // TODO: This shouldn't be stored here. Should be refactored out to reference its parent with computed properties.
     /// Cached parent information.
-    var parentInfo: ParentInfo
+    public var parentInfo: ParentInfo
     
     /// Used only when uniquing marker IDs to avoid duplicate IDs.
-    var idSuffix: String?
+    public var idSuffix: String?
 }
 
 // MARK: Computed
@@ -101,7 +101,7 @@ extension Marker {
     }
     
     func positionTimecodeString(format: Timecode.StringFormat) -> String {
-        position.stringValue(format: format)
+        position.stringValueHours(format: format)
     }
 }
 

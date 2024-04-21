@@ -25,6 +25,9 @@ public struct ExportResult: Equatable, Hashable {
     /// TSV manifest file path, if applicable to the profile. `nil` if not applicable.
     public var tsvManifestPath: URL?
     
+    /// TXT manifest file path, if applicable to the profile. `nil` if not applicable.
+    public var txtManifestPath: URL?
+    
     /// JSON manifest file path, if applicable to the profile. `nil` if not applicable.
     public var jsonManifestPath: URL?
     
@@ -73,6 +76,9 @@ extension ExportResult {
         
         /// TSV manifest file path, if applicable to the profile. `nil` if not applicable.
         case tsvManifestPath
+        
+        /// TXT manifest file path, if applicable to the profile. `nil` if not applicable.
+        case txtManifestPath
         
         /// JSON manifest file path, if applicable to the profile. `nil` if not applicable.
         case jsonManifestPath
@@ -141,6 +147,7 @@ extension ExportResult {
         dict[.exportFolder] = exportFolder.path
         dict[.csvManifestPath] = csvManifestPath?.path
         dict[.tsvManifestPath] = tsvManifestPath?.path
+        dict[.txtManifestPath] = txtManifestPath?.path
         dict[.jsonManifestPath] = jsonManifestPath?.path
         dict[.midiFilePath] = midiFilePath?.path
         dict[.version] = version
